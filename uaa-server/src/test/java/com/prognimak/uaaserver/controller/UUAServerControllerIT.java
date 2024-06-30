@@ -41,7 +41,7 @@ class UUAServerControllerIT {
                 Base64.getEncoder().encodeToString(userNamePassword.getBytes());
 
         RequestEntity request = RequestEntity
-                .post("http://localhost:" + port + "/uaaserver/createtoken")
+                .post("http://localhost:" + port + "/uaaserver/api/v1/createtoken")
                 .header("Content-Type", "text/plain")
                 .header("Secret", encodeUserPassword)
                 .accept(MediaType.TEXT_PLAIN).build();

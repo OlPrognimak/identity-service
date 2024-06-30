@@ -49,7 +49,7 @@ class ApikeyAuthProviderControllerTest {
                 .build();
 
         RequestEntity<TestUser> request = RequestEntity
-                .post("http://localhost:" + port + "/tokenserver/createtoken")
+                .post("http://localhost:" + port + "/tokenserver/api/v1/createtoken")
                 .header("Content-Type", "application/json")
                 .accept(MediaType.TEXT_PLAIN).body(testUser);
 

@@ -52,7 +52,7 @@ class UUAServerControllerTest {
 
     @Test
     public void createToken() {
-        final String testUrl = "/uaaserver/createtoken";
+        final String testUrl = "/uaaserver/api/v1/createtoken";
         final String expectedBody = """
                  {"username":"testUserName","password":"testPassword",
                  "roles":null,"accountNonExpired":true,"accountNonLocked":true
@@ -63,7 +63,7 @@ class UUAServerControllerTest {
         final String encodePassword = Base64.getEncoder().encodeToString(userNamePassword.getBytes());
         log.info("Creates encoded user name and password: {}", encodePassword );
 
-        wireMockServer.stubFor(WireMock.post(urlEqualTo("/tokenserver/createtoken"))
+        wireMockServer.stubFor(WireMock.post(urlEqualTo("/tokenserver/api/v1/createtoken"))
                         .withRequestBody( equalToJson(expectedBody))
                 .willReturn(aResponse()
                         .withHeader("Content-Type", "plain/text")
@@ -71,7 +71,7 @@ class UUAServerControllerTest {
                 ));
 
         RequestEntity request = RequestEntity
-                .post("http://localhost:" + port + "/uaaserver/createtoken")
+                .post("http://localhost:" + port + "/uaaserver/api/v1/createtoken")
                 .header("Content-Type", "text/plain")
                 .header("Secret", encodePassword)
                 .accept(MediaType.TEXT_PLAIN).build();

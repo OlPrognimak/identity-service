@@ -32,6 +32,8 @@
 		<java.jwt.version>4.4.0</java.jwt.version>
 		<jakarta.servlet-api>6.1.0</jakarta.servlet-api>
 		<spring-cloud.version>2023.0.2</spring-cloud.version>
+		<springdoc-openapi-ui.version>1.7.0</springdoc-openapi-ui.version>
+		<springdoc-openapi-ui-starter.version>2.4.0</springdoc-openapi-ui-starter.version>
 	</properties>
 	<dependencyManagement>
 		<dependencies>
@@ -53,7 +55,17 @@
 				<artifactId>jakarta.servlet-api</artifactId>
 				<version>${jakarta.servlet-api}</version>
 			</dependency>
-
+			<!--- Open API UI -->
+			<dependency>
+				<groupId>org.springdoc</groupId>
+				<artifactId>springdoc-openapi-ui</artifactId>
+				<version>${springdoc-openapi-ui.version}</version>
+			</dependency>
+			<dependency>
+				<groupId>org.springdoc</groupId>
+				<artifactId>springdoc-openapi-starter-webmvc-ui</artifactId>
+				<version>${springdoc-openapi-ui-starter.version}</version>
+			</dependency>
 		</dependencies>
 	</dependencyManagement>
 	<build>

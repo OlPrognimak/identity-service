@@ -1,8 +1,21 @@
 
 # Overview
 The project contains two microservices 
- - apikey-auth-provider
- - uaa-server
+ - apikey-auth-provider \
+The api documentation for this microservice. 
+```html
+http://localhost:8083/tokenserver/api-docs
+and
+http://localhost:8083/tokenserver/api-docs.yaml
+```
+
+ - uaa-server \
+   The api documentation for this microservice.
+```html
+http://localhost:8083/uaaserver/api-docs
+and
+http://localhost:8083/uaaserver/api-docs.yaml
+```
 
 # Project description
 The project based on SpringBoot framework 3.3.1 and Maven build tool
@@ -44,18 +57,31 @@ The module ```uaa-server``` contains integration test ```UUAServerControllerTest
 additionally ````apikey-auth-provider```` microservice because the request and response to that microservice 
 is simulated with test STUB of integrated Wiremock server.
 
+## Test  with OpenAPI swagger-ui the microservice apikey-auth-provider
+````html
+http://localhost:8083/tokenserver/swagger-ui/index.html
+````
+
+## Test with OpenAPI swagger-ui the microservice uaa-server
+Starts both springboot application and then call the next url:
+````html
+http://localhost:8082/uaaserver/swagger-ui/index.html
+````
+and add in UI as example HTTP custom header ````Secret```` with value ```dGVzdFVzZXJOYW1lOnRlc3RQYXNzd29yZA==```
+
 ## Test with using Intellij
 Got to the ````Tools -> HTTP Client ->Create request in HTTP client````
 and copy that script:
 ```http request
-POST http://localhost:8082/uaaserver/createtoken
+POST http://localhost:8082/uaaserver/api/v1/createtoken
 Accept: *
 Content-Type: text/plain
 Secret: dGVzdFVzZXJOYW1lOnRlc3RQYXNzd29yZA==
 ```
+## Test with CURL
 If you run application on MAC or Linux/Unix or for example ````Git Bash```` on Windows:
 ````http request
-curl -X POST http://localhost:8082/uaaserver/createtoken \
+curl -X POST http://localhost:8082/uaaserver/api/v1/createtoken \
      -H "Accept: */*" \
      -H "Content-Type: text/plain" \
      -H "Secret: dGVzdFVzZXJOYW1lOnRlc3RQYXNzd29yZA=="
