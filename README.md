@@ -12,9 +12,9 @@ http://localhost:8083/tokenserver/api-docs.yaml
  - uaa-server \
    The api documentation for this microservice.
 ```html
-http://localhost:8083/uaaserver/api-docs
+http://localhost:8082/uaaserver/api-docs
 and
-http://localhost:8083/uaaserver/api-docs.yaml
+http://localhost:8082/uaaserver/api-docs.yaml
 ```
 
 # Project description
